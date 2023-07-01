@@ -34,9 +34,6 @@ namespace MCManager
                 }
             }
 
-            //string path = "C:\\Users\\Fakes\\Desktop\\Test Server Bedrock\\bedrock_server.exe";
-
-            //pi.Arguments = path;
             pi.FileName = Directory.GetCurrentDirectory() + set["path"];
             pi.UseShellExecute = false;
             pi.RedirectStandardOutput = true;
@@ -47,14 +44,6 @@ namespace MCManager
             p.Start();
             sw = p.StandardInput;
             p.BeginOutputReadLine();
-            //Invoke((MethodInvoker)delegate { Refresh(); });
-            //while (true)
-            //{
-            //    p.BeginOutputReadLine();
-            //    p.CancelOutputRead();
-            //    Thread.Sleep(1000);
-            //}
-            //p.CancelOutputRead();
             ServerRunning = true;
             return null;
         }
@@ -162,15 +151,6 @@ namespace MCManager
             txtIn.Text += cPlayers.Text;
             cPlayers.Text = "";
             txtIn.Select();
-            //try
-            //{
-            //    p.CancelOutputRead();
-            //}
-            //finally
-            //{
-            //    sw.WriteLine(txtIn.Text);
-            //    p.BeginOutputReadLine();
-            //}
         }
     }
 }

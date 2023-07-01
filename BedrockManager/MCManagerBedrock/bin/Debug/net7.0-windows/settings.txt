@@ -1,1 +1,1 @@
-path=\TestServer\bedrock_server.exe
+path=\server\bedrock_server.exe
