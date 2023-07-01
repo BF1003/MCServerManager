@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GJLUiQnxYa7xjC6/JMEVlQRvBpKJoDFh97V6/dqOY2GkDvXh7wQ8+2jd4pqrpD4B2Gig3b1hNNIhkooGVatbIA==",
+  "dgSpecHash": "Ye8B+xsqe7TmYgQjgUmanV1JpSX3YPaX8gLP9tBNiMUO4S6NjqOe2F8gBq9IDYMbJfHnMXxM6AM3MDIntvgjLg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Fakes\\source\\repos\\MCManagerSpigot\\MCManager.csproj",
+  "projectFilePath": "C:\\Users\\Fakes\\source\\repos\\MCServerManager\\JavaManager\\MCManagerSpigot\\MCManager.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

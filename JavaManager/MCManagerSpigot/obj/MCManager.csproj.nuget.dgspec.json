@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Fakes\\source\\repos\\MCManagerSpigot\\MCManager.csproj": {}
+    "C:\\Users\\Fakes\\source\\repos\\MCServerManager\\JavaManager\\MCManagerSpigot\\MCManager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Fakes\\source\\repos\\MCManagerSpigot\\MCManager.csproj": {
+    "C:\\Users\\Fakes\\source\\repos\\MCServerManager\\JavaManager\\MCManagerSpigot\\MCManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Fakes\\source\\repos\\MCManagerSpigot\\MCManager.csproj",
+        "projectUniqueName": "C:\\Users\\Fakes\\source\\repos\\MCServerManager\\JavaManager\\MCManagerSpigot\\MCManager.csproj",
         "projectName": "MCManager",
-        "projectPath": "C:\\Users\\Fakes\\source\\repos\\MCManagerSpigot\\MCManager.csproj",
+        "projectPath": "C:\\Users\\Fakes\\source\\repos\\MCServerManager\\JavaManager\\MCManagerSpigot\\MCManager.csproj",
         "packagesPath": "C:\\Users\\Fakes\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Fakes\\source\\repos\\MCManagerSpigot\\obj\\",
+        "outputPath": "C:\\Users\\Fakes\\source\\repos\\MCServerManager\\JavaManager\\MCManagerSpigot\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
