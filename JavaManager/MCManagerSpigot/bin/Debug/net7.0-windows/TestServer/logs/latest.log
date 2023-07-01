@@ -1,0 +1,16 @@
+[09:41:02] [ServerMain/INFO]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[09:41:02] [ServerMain/ERROR]: Failed to start the minecraft server
+java.io.IOException: Der Prozess kann nicht auf die Datei zugreifen, da ein anderer Prozess einen Teil der Datei gesperrt hat
+	at sun.nio.ch.FileDispatcherImpl.write0(Native Method) ~[?:?]
+	at sun.nio.ch.FileDispatcherImpl.write(FileDispatcherImpl.java:68) ~[?:?]
+	at sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:132) ~[?:?]
+	at sun.nio.ch.IOUtil.write(IOUtil.java:76) ~[?:?]
+	at sun.nio.ch.IOUtil.write(IOUtil.java:67) ~[?:?]
+	at sun.nio.ch.FileChannelImpl.write(FileChannelImpl.java:288) ~[?:?]
+	at net.minecraft.util.SessionLock.a(SourceFile:37) ~[spigot-1.20.1-R0.1-SNAPSHOT.jar:3815-Spigot-64b565e-9f64f0d]
+	at net.minecraft.world.level.storage.Convertable$ConversionSession.<init>(Convertable.java:517) ~[spigot-1.20.1-R0.1-SNAPSHOT.jar:3815-Spigot-64b565e-9f64f0d]
+	at net.minecraft.world.level.storage.Convertable.validateAndCreateAccess(Convertable.java:430) ~[spigot-1.20.1-R0.1-SNAPSHOT.jar:3815-Spigot-64b565e-9f64f0d]
+	at net.minecraft.server.Main.main(Main.java:174) ~[spigot-1.20.1-R0.1-SNAPSHOT.jar:3815-Spigot-64b565e-9f64f0d]
+	at org.bukkit.craftbukkit.Main.main(Main.java:225) ~[spigot-1.20.1-R0.1-SNAPSHOT.jar:3815-Spigot-64b565e-9f64f0d]
+	at org.bukkit.craftbukkit.bootstrap.Main.lambda$1(Main.java:60) ~[spigot-1.20.1.jar:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
