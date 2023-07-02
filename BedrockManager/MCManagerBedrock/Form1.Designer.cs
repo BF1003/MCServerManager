@@ -33,6 +33,7 @@
             btnstart = new Button();
             btnstop = new Button();
             cPlayers = new ComboBox();
+            chkmaximize = new CheckBox();
             SuspendLayout();
             // 
             // txtOut
@@ -95,11 +96,23 @@
             cPlayers.TabStop = false;
             cPlayers.TextChanged += cPlayers_TextChanged;
             // 
+            // chkmaximize
+            // 
+            chkmaximize.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            chkmaximize.AutoSize = true;
+            chkmaximize.Location = new Point(623, 345);
+            chkmaximize.Name = "chkmaximize";
+            chkmaximize.Size = new Size(165, 19);
+            chkmaximize.TabIndex = 100;
+            chkmaximize.Text = "always maximize windows";
+            chkmaximize.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(chkmaximize);
             Controls.Add(cPlayers);
             Controls.Add(btnstop);
             Controls.Add(btnstart);
@@ -107,8 +120,19 @@
             Controls.Add(txtOut);
             Name = "Form1";
             Text = "Form1";
+            WindowState = FormWindowState.Maximized;
+            Activated += Form1_Activated;
+            Deactivate += Form1_Deactivate;
             FormClosing += Form1_FormClosing;
             Load += Form1_Load;
+            ClientSizeChanged += Form1_ClientSizeChanged;
+            LocationChanged += Form1_LocationChanged;
+            SizeChanged += Form1_SizeChanged;
+            PaddingChanged += Form1_PaddingChanged;
+            Leave += Form1_Leave;
+            Move += Form1_Move;
+            Resize += Form1_Resize;
+            StyleChanged += Form1_StyleChanged;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -120,5 +144,6 @@
         private Button btnstart;
         private Button btnstop;
         private ComboBox cPlayers;
+        private CheckBox chkmaximize;
     }
 }

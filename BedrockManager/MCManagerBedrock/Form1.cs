@@ -12,6 +12,7 @@ namespace MCManager
         Task task;
         StreamWriter sw;
         bool ServerRunning = false;
+        bool ServerFound = false;
 
         public Form1()
         {
@@ -33,6 +34,14 @@ namespace MCManager
                     }
                 }
             }
+            if (!File.Exists(Directory.GetCurrentDirectory() + set["path"]))
+            {
+                MessageBox.Show("No server found. Please check the 'server' folder.");
+                ServerFound = false;
+                task = null;
+                return null;
+            }
+
 
             pi.FileName = Directory.GetCurrentDirectory() + set["path"];
             pi.UseShellExecute = false;
@@ -42,6 +51,7 @@ namespace MCManager
             p.StartInfo = pi;
             p.OutputDataReceived += new DataReceivedEventHandler(pOut);
             p.Start();
+            ServerFound = true;
             sw = p.StandardInput;
             p.BeginOutputReadLine();
             ServerRunning = true;
@@ -107,11 +117,31 @@ namespace MCManager
         private void Form1_Load(object sender, EventArgs e)
         {
             task = Task.Factory.StartNew(() => Start());
+            Thread.Sleep(4000);
+            if (ServerFound == false)
+            {
+                int runnings = 0;
+                while (runnings < 10)
+                {
+                    if (task == null)
+                    {
+                        this.Close();
+                        Thread.Sleep(100);
+                        return;
+                    }
+                    Thread.Sleep(100);
+                    runnings++;
+                }
+                MessageBox.Show("An error occoured");
+                this.Close();
+                return;
+            }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (ServerRunning) btnstop.PerformClick();
+            task = null;
         }
 
         private void btnstop_Click(object sender, EventArgs e)
@@ -132,6 +162,7 @@ namespace MCManager
                 log.Close();
                 txtOut.Text = "Server stopped";
                 ServerRunning = false;
+                task = null;
             }
         }
 
@@ -151,6 +182,116 @@ namespace MCManager
             txtIn.Text += cPlayers.Text;
             cPlayers.Text = "";
             txtIn.Select();
+        }
+
+        private void Form1_StyleChanged(object sender, EventArgs e)
+        {
+            this.Focus();
+            this.Activate();
+            this.Select();
+            if (chkmaximize.Checked)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            this.Focus();
+            this.Activate();
+            this.Select();
+            if (chkmaximize.Checked)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void Form1_Move(object sender, EventArgs e)
+        {
+            this.Focus();
+            this.Activate();
+            this.Select();
+            if (chkmaximize.Checked)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void Form1_PaddingChanged(object sender, EventArgs e)
+        {
+            this.Focus();
+            this.Activate();
+            this.Select();
+            if (chkmaximize.Checked)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void Form1_SizeChanged(object sender, EventArgs e)
+        {
+            this.Focus();
+            this.Activate();
+            this.Select();
+            if (chkmaximize.Checked)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void Form1_LocationChanged(object sender, EventArgs e)
+        {
+            this.Focus();
+            this.Activate();
+            this.Select();
+            if (chkmaximize.Checked)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void Form1_ClientSizeChanged(object sender, EventArgs e)
+        {
+            this.Focus();
+            this.Activate();
+            this.Select();
+            if (chkmaximize.Checked)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void Form1_Leave(object sender, EventArgs e)
+        {
+            this.Focus();
+            this.Activate();
+            this.Select();
+            if (chkmaximize.Checked)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void Form1_Deactivate(object sender, EventArgs e)
+        {
+            this.Focus();
+            this.Activate();
+            this.Select();
+            if (chkmaximize.Checked)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            this.Focus();
+            this.Activate();
+            this.Select();
+            if (chkmaximize.Checked)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
         }
     }
 }

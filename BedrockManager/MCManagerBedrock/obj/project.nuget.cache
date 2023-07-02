@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YRfeZlMyEHvn3x19pwoBrZ0YfD7J6KywaU2/bpWyR8IHGc3KAyPUu3GFu5D4VzYGXvQB6w7iDioypbgjQIWEvg==",
+  "dgSpecHash": "/M+S6gKNu+mdnlxuPzMt6REGviupp0/HXysIC8MWuNGNaEMIkwEANgVrdBeH3P2xyAiS+OINm1HIBJm25ictHQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Fakes\\source\\repos\\MCManager\\MCManager.csproj",
+  "projectFilePath": "C:\\Users\\Fakes\\source\\repos\\MCServerManager\\BedrockManager\\MCManagerBedrock\\MCManager.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,23 +1,23 @@
 NO LOG FILE! - setting up server logging...
-[2023-06-30 19:24:15:869 INFO] Starting Server
-[2023-06-30 19:24:15:869 INFO] Version: 1.20.1.02
-[2023-06-30 19:24:15:870 INFO] Session ID: 4f9fcd37-9926-495b-963b-8eab2d24f8f7
-[2023-06-30 19:24:15:870 INFO] Build ID: 16132642
-[2023-06-30 19:24:15:870 INFO] Branch: r/20
-[2023-06-30 19:24:15:870 INFO] Commit ID: 057f63795f118affe392afd6d293a2c7ff7030ca
-[2023-06-30 19:24:15:870 INFO] Configuration: Publish
-[2023-06-30 19:24:15:877 INFO] Level Name: Bedrock level
-[2023-06-30 19:24:15:883 INFO] Game mode: 0 Survival
-[2023-06-30 19:24:15:883 INFO] Difficulty: 1 EASY
-[2023-06-30 19:24:15:884 INFO] Content logging to console is enabled.
-[2023-06-30 19:24:16:850 INFO] Opening level 'worlds/Bedrock level/db'
-[2023-06-30 19:24:31:137 INFO] IPv4 supported, port: 19132: Used for gameplay and LAN discovery
-[2023-06-30 19:24:31:137 INFO] IPv6 supported, port: 19133: Used for gameplay
-[2023-06-30 19:24:31:181 INFO] Server started.
-[2023-06-30 19:24:31:181 INFO] ================ TELEMETRY MESSAGE ===================
-[2023-06-30 19:24:31:181 INFO] Server Telemetry is currently not enabled. 
-[2023-06-30 19:24:31:181 INFO] Enabling this telemetry helps us improve the game.
-[2023-06-30 19:24:31:182 INFO] 
-[2023-06-30 19:24:31:182 INFO] To enable this feature, add the line 'emit-server-telemetry=true'
-[2023-06-30 19:24:31:182 INFO] to the server.properties file in the handheld/src-server directory
-[2023-06-30 19:24:31:182 INFO] ======================================================
+[2023-07-02 08:12:00:625 INFO] Starting Server
+[2023-07-02 08:12:00:625 INFO] Version: 1.20.1.02
+[2023-07-02 08:12:00:625 INFO] Session ID: 45392a5c-fa5b-47f5-8701-f637d3e09a30
+[2023-07-02 08:12:00:626 INFO] Build ID: 16132642
+[2023-07-02 08:12:00:626 INFO] Branch: r/20
+[2023-07-02 08:12:00:626 INFO] Commit ID: 057f63795f118affe392afd6d293a2c7ff7030ca
+[2023-07-02 08:12:00:626 INFO] Configuration: Publish
+[2023-07-02 08:12:00:628 INFO] Level Name: Bedrock level
+[2023-07-02 08:12:00:631 INFO] Game mode: 0 Survival
+[2023-07-02 08:12:00:632 INFO] Difficulty: 1 EASY
+[2023-07-02 08:12:00:632 INFO] Content logging to console is enabled.
+[2023-07-02 08:12:01:250 INFO] Opening level 'worlds/Bedrock level/db'
+[2023-07-02 08:12:03:826 INFO] IPv4 supported, port: 19132: Used for gameplay and LAN discovery
+[2023-07-02 08:12:03:826 INFO] IPv6 supported, port: 19133: Used for gameplay
+[2023-07-02 08:12:03:858 INFO] Server started.
+[2023-07-02 08:12:03:858 INFO] ================ TELEMETRY MESSAGE ===================
+[2023-07-02 08:12:03:858 INFO] Server Telemetry is currently not enabled. 
+[2023-07-02 08:12:03:858 INFO] Enabling this telemetry helps us improve the game.
+[2023-07-02 08:12:03:858 INFO] 
+[2023-07-02 08:12:03:859 INFO] To enable this feature, add the line 'emit-server-telemetry=true'
+[2023-07-02 08:12:03:859 INFO] to the server.properties file in the handheld/src-server directory
+[2023-07-02 08:12:03:859 INFO] ======================================================

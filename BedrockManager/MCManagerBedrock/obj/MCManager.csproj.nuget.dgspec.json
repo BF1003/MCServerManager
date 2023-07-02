@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Fakes\\source\\repos\\MCManager\\MCManager.csproj": {}
+    "C:\\Users\\Fakes\\source\\repos\\MCServerManager\\BedrockManager\\MCManagerBedrock\\MCManager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Fakes\\source\\repos\\MCManager\\MCManager.csproj": {
+    "C:\\Users\\Fakes\\source\\repos\\MCServerManager\\BedrockManager\\MCManagerBedrock\\MCManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Fakes\\source\\repos\\MCManager\\MCManager.csproj",
+        "projectUniqueName": "C:\\Users\\Fakes\\source\\repos\\MCServerManager\\BedrockManager\\MCManagerBedrock\\MCManager.csproj",
         "projectName": "MCManager",
-        "projectPath": "C:\\Users\\Fakes\\source\\repos\\MCManager\\MCManager.csproj",
+        "projectPath": "C:\\Users\\Fakes\\source\\repos\\MCServerManager\\BedrockManager\\MCManagerBedrock\\MCManager.csproj",
         "packagesPath": "C:\\Users\\Fakes\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Fakes\\source\\repos\\MCManager\\obj\\",
+        "outputPath": "C:\\Users\\Fakes\\source\\repos\\MCServerManager\\BedrockManager\\MCManagerBedrock\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
