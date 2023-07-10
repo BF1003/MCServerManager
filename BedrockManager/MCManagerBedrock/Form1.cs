@@ -93,6 +93,24 @@ namespace MCManager
                             }
                         }
                     }
+                    if (e.Data.Contains("Player disconnected"))
+                    {
+                        string[] tmp = e.Data.Split(':');
+                        for (int i = 0; i < tmp.Length; i++)
+                        {
+                            if (tmp[i].Contains("Player disconnected"))
+                            {
+                                string[] tmpname = tmp[i + 1].Split(',');
+                                if (!players.Contains(tmpname[0]))
+                                {
+                                    players.Remove(tmpname[0].Trim());
+                                    Invoke((MethodInvoker)delegate { cPlayers.Items.Remove('"' + tmpname[0].Trim() + '"'); });
+                                    AutoCompleteStringCollection names = txtIn.AutoCompleteCustomSource;
+                                    Invoke((MethodInvoker)delegate { names.Remove('"' + tmpname[0].Trim() + '"'); });
+                                }
+                            }
+                        }
+                    }
                     if (e.Data.Contains("Port [19132] may be in use by another process"))
                     {
                         Invoke((MethodInvoker)delegate
