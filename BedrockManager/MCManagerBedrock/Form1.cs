@@ -5,7 +5,7 @@ namespace MCManager
 {
     public partial class Form1 : Form
     {
-        Process p = new Process();
+        public Process p = new Process();
         ProcessStartInfo pi = new ProcessStartInfo();
         List<string> Output = new List<string>();
         List<string> players = new List<string>();
@@ -13,6 +13,7 @@ namespace MCManager
         StreamWriter sw;
         bool ServerRunning = false;
         bool ServerFound = false;
+        Dictionary<string, string> set = new Dictionary<string, string>();
 
         public Form1()
         {
@@ -21,7 +22,15 @@ namespace MCManager
 
         private Action Start()
         {
-            Dictionary<string, string> set = new Dictionary<string, string>();
+            string CurrentPath = "";
+            string[] tmpsplit = System.Reflection.Assembly.GetEntryAssembly().Location.Split('\\');
+            for (int i = 0; i < tmpsplit.Count() - 1; i++)
+            {
+                CurrentPath += tmpsplit[i] + '\\';
+            }
+            if (CurrentPath != "") Directory.SetCurrentDirectory(CurrentPath);
+
+
             using (StreamReader sr = new StreamReader("settings.txt"))
             {
                 string line;
@@ -60,28 +69,45 @@ namespace MCManager
 
         private void pOut(object sender, DataReceivedEventArgs e)
         {
-            Output.Add(e.Data);
-            Invoke((MethodInvoker)delegate { txtOut.Text += e.Data + Environment.NewLine; });
-            if (ServerRunning && e.Data != null)
+            try
             {
-                if (e.Data.Contains("Player connected"))
+                Output.Add(e.Data);
+                Invoke((MethodInvoker)delegate { txtOut.Text += e.Data + Environment.NewLine; });
+                if (ServerRunning && e.Data != null)
                 {
-                    string[] tmp = e.Data.Split(':');
-                    for (int i = 0; i < tmp.Length; i++)
+                    if (e.Data.Contains("Player connected"))
                     {
-                        if (tmp[i].Contains("Player connected"))
+                        string[] tmp = e.Data.Split(':');
+                        for (int i = 0; i < tmp.Length; i++)
                         {
-                            string[] tmpname = tmp[i + 1].Split(',');
-                            if (!players.Contains(tmpname[0]))
+                            if (tmp[i].Contains("Player connected"))
                             {
-                                players.Add(tmpname[0].Trim());
-                                Invoke((MethodInvoker)delegate { cPlayers.Items.Add('"' + tmpname[0].Trim() + '"'); });
-                                AutoCompleteStringCollection names = txtIn.AutoCompleteCustomSource;
-                                Invoke((MethodInvoker)delegate { names.Add('"' + tmpname[0].Trim() + '"'); });
+                                string[] tmpname = tmp[i + 1].Split(',');
+                                if (!players.Contains(tmpname[0]))
+                                {
+                                    players.Add(tmpname[0].Trim());
+                                    Invoke((MethodInvoker)delegate { cPlayers.Items.Add('"' + tmpname[0].Trim() + '"'); });
+                                    AutoCompleteStringCollection names = txtIn.AutoCompleteCustomSource;
+                                    Invoke((MethodInvoker)delegate { names.Add('"' + tmpname[0].Trim() + '"'); });
+                                }
                             }
                         }
                     }
+                    if (e.Data.Contains("Port [19132] may be in use by another process"))
+                    {
+                        Invoke((MethodInvoker)delegate
+                        {
+                            txtIn.Text = Environment.NewLine + Environment.NewLine +
+                            "ERROR: Please restart your computer to free up the Port or change the Port in the server.properties." +
+                            Environment.NewLine + Environment.NewLine;
+                        });
+                        txtIn.ReadOnly = true;
+                    }
                 }
+            }
+            catch
+            {
+
             }
         }
 
@@ -95,19 +121,24 @@ namespace MCManager
                 }
                 finally
                 {
-                    if (txtIn.Text == "gm1")
+                    switch (txtIn.Text)
                     {
-                        sw.WriteLine("gamemode 1 " + '"' + "Basti F6648" + '"');
+                        case "gm1":
+                            sw.WriteLine("gamemode 1 " + '"' + "Basti F6648" + '"');
+                            break;
+                        case "gm0":
+                            sw.WriteLine("gamemode 0 " + '"' + "Basti F6648" + '"');
+                            break;
+                        case "gm sp":
+                            sw.WriteLine("gamemode spectator " + '"' + "Basti F6648" + '"');
+                            break;
+                        default:
+                            sw.WriteLine(txtIn.Text);
+                            break;
                     }
-                    else if (txtIn.Text == "gm0")
-                    {
-                        sw.WriteLine("gamemode 0 " + '"' + "Basti F6648" + '"');
-                    }
-                    else
-                    {
-                        sw.WriteLine(txtIn.Text);
-                    }
+
                     p.BeginOutputReadLine();
+                    if (txtIn.Text == null) btnstop.PerformClick();
                     txtIn.Text = "";
                     cPlayers.Text = "";
                 }
@@ -154,8 +185,9 @@ namespace MCManager
             {
                 sw.WriteLine("stop");
                 p.BeginOutputReadLine();
+                Thread.Sleep(500);
                 p.CancelOutputRead();
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
                 p.Close();
                 StreamWriter log = new StreamWriter("log.txt");
                 log.Write(txtOut.Text);
@@ -184,113 +216,54 @@ namespace MCManager
             txtIn.Select();
         }
 
-        private void Form1_StyleChanged(object sender, EventArgs e)
+        private void btnBackup_Click(object sender, EventArgs e)
         {
-            this.Focus();
-            this.Activate();
-            this.Select();
-            if (chkmaximize.Checked)
+            string[] dirs = Directory.GetDirectories(Directory.GetCurrentDirectory() + "\\server\\worlds");
+            try
             {
-                this.WindowState = FormWindowState.Maximized;
-            }
-        }
+                bool filesdone = false;
+                foreach (string dir in dirs)
+                {
+                    if (!filesdone)
+                    {
+                        foreach (string file in Directory.GetFiles(dir))
+                        {
+                            string[] tmpfile = file.Split('\\');
+                            string[] tmpdir = dir.Split('\\');
 
-        private void Form1_Resize(object sender, EventArgs e)
-        {
-            this.Focus();
-            this.Activate();
-            this.Select();
-            if (chkmaximize.Checked)
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-        }
+                            if (!Directory.Exists(set["BackupPath"] + '\\' + tmpdir[tmpdir.Length - 1] + '\\'))
+                                Directory.CreateDirectory(set["BackupPath"] + '\\' + tmpdir[tmpdir.Length - 1] + '\\');
 
-        private void Form1_Move(object sender, EventArgs e)
-        {
-            this.Focus();
-            this.Activate();
-            this.Select();
-            if (chkmaximize.Checked)
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-        }
+                            if (File.Exists(set["BackupPath"] + '\\' + tmpdir[tmpdir.Length - 1] + '\\' + tmpfile[tmpfile.Length - 1]))
+                                File.Delete(set["BackupPath"] + '\\' + tmpdir[tmpdir.Length - 1] + '\\' + tmpfile[tmpfile.Length - 1]);
+                            File.Copy(file, set["BackupPath"] + '\\' + tmpdir[tmpdir.Length - 1] + '\\' + tmpfile[tmpfile.Length - 1]);
+                        }
+                    }
 
-        private void Form1_PaddingChanged(object sender, EventArgs e)
-        {
-            this.Focus();
-            this.Activate();
-            this.Select();
-            if (chkmaximize.Checked)
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-        }
+                    string[] def = Directory.GetDirectories(dir);
+                    foreach (string derdir in def)
+                    {
+                        foreach (string derdirfiles in Directory.GetFiles(derdir))
+                        {
+                            string[] tmpderdirfile = derdirfiles.Split('\\');
+                            string[] tmpdbderdir = derdir.Split('\\');
+                            
+                            if (!Directory.Exists(set["BackupPath"] + '\\' + tmpdbderdir[tmpdbderdir.Length - 2] + '\\' + tmpdbderdir[tmpdbderdir.Length - 1] + '\\')) 
+                                Directory.CreateDirectory(set["BackupPath"] + '\\' + tmpdbderdir[tmpdbderdir.Length - 2] + '\\' +tmpdbderdir[tmpdbderdir.Length - 1] + '\\');
 
-        private void Form1_SizeChanged(object sender, EventArgs e)
-        {
-            this.Focus();
-            this.Activate();
-            this.Select();
-            if (chkmaximize.Checked)
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-        }
+                            if (File.Exists(set["BackupPath"] + '\\' + tmpdbderdir[tmpdbderdir.Length - 2] + '\\' + tmpdbderdir[tmpdbderdir.Length - 1] + '\\' + tmpderdirfile[tmpderdirfile.Length - 1]))
+                                File.Delete(set["BackupPath"] + '\\' + tmpdbderdir[tmpdbderdir.Length - 2] + '\\' + tmpdbderdir[tmpdbderdir.Length - 1] + '\\' + tmpderdirfile[tmpderdirfile.Length - 1]);
+                            File.Copy(derdirfiles, set["BackupPath"] + '\\' + tmpdbderdir[tmpdbderdir.Length - 2] + '\\' + tmpdbderdir[tmpdbderdir.Length - 1] + '\\' + tmpderdirfile[tmpderdirfile.Length - 1]);
+                        }
+                    }
+                }
 
-        private void Form1_LocationChanged(object sender, EventArgs e)
-        {
-            this.Focus();
-            this.Activate();
-            this.Select();
-            if (chkmaximize.Checked)
-            {
-                this.WindowState = FormWindowState.Maximized;
+                
+                MessageBox.Show("Backup was created");
             }
-        }
-
-        private void Form1_ClientSizeChanged(object sender, EventArgs e)
-        {
-            this.Focus();
-            this.Activate();
-            this.Select();
-            if (chkmaximize.Checked)
+            catch (Exception ex)
             {
-                this.WindowState = FormWindowState.Maximized;
-            }
-        }
-
-        private void Form1_Leave(object sender, EventArgs e)
-        {
-            this.Focus();
-            this.Activate();
-            this.Select();
-            if (chkmaximize.Checked)
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-        }
-
-        private void Form1_Deactivate(object sender, EventArgs e)
-        {
-            this.Focus();
-            this.Activate();
-            this.Select();
-            if (chkmaximize.Checked)
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-        }
-
-        private void Form1_Activated(object sender, EventArgs e)
-        {
-            this.Focus();
-            this.Activate();
-            this.Select();
-            if (chkmaximize.Checked)
-            {
-                this.WindowState = FormWindowState.Maximized;
+                MessageBox.Show("An Error occoured while creating a backup");
             }
         }
     }

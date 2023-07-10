@@ -13,7 +13,9 @@ namespace MCManager
             ApplicationConfiguration.Initialize();
             try
             {
-                Application.Run(new Form1());
+                Form1 form1;
+                Application.Run(form1 = new Form1());
+                form1.p.Close();
             }
             catch (Exception ex) { }
         }

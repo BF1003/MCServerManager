@@ -1,1 +1,2 @@
 path=\server\bedrock_server.exe
+BackupPath=C:\server-backup\worlds
