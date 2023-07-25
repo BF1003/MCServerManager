@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\BedrockManager",
+    "\\BedrockManager\\MCManagerBedrock"
   ],
+  "SelectedNode": "\\BedrockManager\\MCManagerBedrock\\Form1.cs",
   "PreviewInSolutionExplorer": false
 }

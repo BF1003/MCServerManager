@@ -1,0 +1,43 @@
+NO LOG FILE! - setting up server logging...
+[2023-07-17 08:43:38:150 INFO] Starting Server
+[2023-07-17 08:43:38:150 INFO] Version: 1.20.11.01
+[2023-07-17 08:43:38:150 INFO] Session ID: f80b8b85-4cde-4243-bcee-b504f4fcc30d
+[2023-07-17 08:43:38:150 INFO] Build ID: 16423282
+[2023-07-17 08:43:38:151 INFO] Branch: r/20_u1
+[2023-07-17 08:43:38:151 INFO] Commit ID: 52edfe76050d27eb8b174c1fe73eb58332208093
+[2023-07-17 08:43:38:151 INFO] Configuration: Publish
+[2023-07-17 08:43:38:152 INFO] Level Name: Bedrock level
+[2023-07-17 08:43:38:156 INFO] Game mode: 0 Survival
+[2023-07-17 08:43:38:156 INFO] Difficulty: 1 EASY
+[2023-07-17 08:43:38:157 INFO] Content logging to console is enabled.
+[2023-07-17 08:43:39:405 INFO] Opening level 'worlds/Bedrock level/db'
+[2023-07-17 08:43:41:193 INFO] [FeatureRegistry] Bedrock level | nether_hell_cave_carver_feature | minecraft:hell_cave_carver_feature | {
+   "description" : {
+      "identifier" : "minecraft:nether_hell_cave_carver_feature"
+   },
+   "fill_with" : "minecraft:air",
+   "floor_level" : [ -0.70, -0.70 ],
+   "height_limit" : 120,
+   "horizontal_radius_multiplier" : [ 1.0, 1.0 ],
+   "skip_carve_chance" : 5,
+   "vertical_radius_multiplier" : [ 1.0, 1.0 ],
+   "width_modifier" : 0.0,
+   "y_scale" : [ 0.50, 0.50 ]
+}
+
+
+
+[2023-07-17 08:43:41:194 ERROR] [FeatureRegistry] Bedrock level | nether_hell_cave_carver_feature | minecraft:hell_cave_carver_feature | child 'minecraft:hell_cave_carver_feature' not valid here.
+
+
+[2023-07-17 08:43:42:066 INFO] IPv4 supported, port: 19132: Used for gameplay and LAN discovery
+[2023-07-17 08:43:42:066 INFO] IPv6 supported, port: 19133: Used for gameplay
+[2023-07-17 08:43:42:143 INFO] Server started.
+[2023-07-17 08:43:42:143 INFO] ================ TELEMETRY MESSAGE ===================
+[2023-07-17 08:43:42:143 INFO] Server Telemetry is currently not enabled. 
+[2023-07-17 08:43:42:144 INFO] Enabling this telemetry helps us improve the game.
+[2023-07-17 08:43:42:144 INFO] 
+[2023-07-17 08:43:42:144 INFO] To enable this feature, add the line 'emit-server-telemetry=true'
+[2023-07-17 08:43:42:144 INFO] to the server.properties file in the handheld/src-server directory
+[2023-07-17 08:43:42:145 INFO] ======================================================
+[2023-07-17 08:43:53:935 ERROR] Unknown command: Backup. Please check that the command exists and that you have permission to use it.

@@ -34,6 +34,7 @@
             btnstop = new Button();
             cPlayers = new ComboBox();
             btnBackup = new Button();
+            chkAutoBackup = new CheckBox();
             SuspendLayout();
             // 
             // txtOut
@@ -114,11 +115,24 @@
             btnBackup.UseVisualStyleBackColor = true;
             btnBackup.Click += btnBackup_Click;
             // 
+            // chkAutoBackup
+            // 
+            chkAutoBackup.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            chkAutoBackup.AutoSize = true;
+            chkAutoBackup.Location = new Point(756, 460);
+            chkAutoBackup.Name = "chkAutoBackup";
+            chkAutoBackup.Size = new Size(115, 24);
+            chkAutoBackup.TabIndex = 101;
+            chkAutoBackup.Text = "Auto Backup";
+            chkAutoBackup.UseVisualStyleBackColor = true;
+            chkAutoBackup.CheckedChanged += chkAutoBackup_CheckedChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(914, 600);
+            Controls.Add(chkAutoBackup);
             Controls.Add(btnBackup);
             Controls.Add(cPlayers);
             Controls.Add(btnstop);
@@ -143,5 +157,6 @@
         private Button btnstop;
         private ComboBox cPlayers;
         private Button btnBackup;
+        private CheckBox chkAutoBackup;
     }
 }

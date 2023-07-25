@@ -14,4 +14,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MCManager
-build_property.ProjectDir = C:\Users\Fakes\Source\Repos\BF1003\MCServerManager\BedrockManager\MCManagerBedrock\
+build_property.ProjectDir = C:\Users\Fakes\source\repos\BF1003\MCServerManager\BedrockManager\MCManagerBedrock\
